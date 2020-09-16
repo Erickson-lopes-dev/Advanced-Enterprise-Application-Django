@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 
 from apps.funcionarios.models import Funcionario
 
@@ -11,3 +11,9 @@ class FuncionariosList(ListView):
         empresa_logada = self.request.user.funcionario.empresa
         # Filtrar funcionarios que tenha a mesma empresa do user logado
         return Funcionario.objects.filter(empresa=empresa_logada)
+
+
+class FuncionarioEdit(UpdateView):
+    model = Funcionario
+    fields = ['nome', 'departamentos']
+    success_url = '/funcionarios/'
