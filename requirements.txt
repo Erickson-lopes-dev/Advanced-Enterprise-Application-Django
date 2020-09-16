@@ -1,0 +1,5 @@
+asgiref==3.2.10
+Django==2.2.9
+django-bootstrap-form==3.4
+pytz==2020.1
+sqlparse==0.3.1
