@@ -8,7 +8,7 @@ class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
 
     # relacionando com usuario de um pra um
-    User = models.OneToOneField(User, on_delete=models.PROTECT)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
 
     # O usuário pode estar relacionado a multiplos departamentos
     departamentos = models.ManyToManyField(Departamento)
