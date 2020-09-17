@@ -6,12 +6,13 @@
             {{ registro_hrs }}
         </a>
 
-        <a href="{% url 'create_hora_extra' %}">
-            Criar registro
-        </a>
-    {% endfor %}
 
+    {% endfor %}
     {% if not object_list %}
-        <h3>Nao existem registros de hora extra no banco de dados</h3>
+            <h3>Nao existem registros de hora extra no banco de dados</h3>
     {% endif %}
+    <a href="{% url 'create_hora_extra' %}">
+        Criar registro
+    </a>
+
 {% endblock %}

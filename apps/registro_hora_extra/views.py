@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 
+from apps.registro_hora_extra.form import RegistroHoraExtraForm
 from apps.registro_hora_extra.models import RegistroHoraExtra
 
 
@@ -27,4 +28,11 @@ class HoraExtraDElete(DeleteView):
 
 class HoraExtraCreate(CreateView):
     model = RegistroHoraExtra
-    fields = ['motivo', "funcionario", 'horas']
+    form_class = RegistroHoraExtraForm
+
+    # Implementa o usuario logado para o campo do formulario
+    def get_form_kwargs(self):
+        kwargs = super(HoraExtraCreate, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
