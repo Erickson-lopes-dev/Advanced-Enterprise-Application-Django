@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% for registro_hrs in object_list %}
+        {{ registro_hrs }}
+        <a href="{% url 'update_hora_extra' funcionario.id %}">
+            {{ hrsextra.nome }}
+        </a>
+
+        <a href="{% url 'delete_hora_extra' funcionario.id %}">
+            Delete
+        </a>
+
+
+        <br>
+    {% endfor %}
+
+    <a href="{% url 'create_hora_extra' %}" class="btn btn-info">
+        Criar
+    </a>
+{% endblock %}
